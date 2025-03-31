@@ -19,7 +19,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
     'UK',
     'Japan',
     'France',
-    'Spain'
+    'Spain',
   ];
   bool _isFilterListVisible = false;
 
@@ -39,8 +39,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
             decoration: InputDecoration(
               hintText: "Search for a creator or a place",
               prefixIcon: Icon(Icons.search),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(25),
                 borderSide: BorderSide(color: Colors.cyan, width: 2.0),
@@ -86,28 +87,27 @@ class _ExploreScreenState extends State<ExploreScreen> {
               child: Wrap(
                 spacing: 8.0,
                 runSpacing: 4.0,
-                children: _countries.map((country) {
-                  return FilterChip(
-                    label: Text(country, style: TextStyle(fontSize: 12)),
-                    selected: _selectedFilters.contains(country),
-                    onSelected: (bool selected) {
-                      setState(() {
-                        if (selected) {
-                          _selectedFilters.add(country);
-                        } else {
-                          _selectedFilters.remove(country);
-                        }
-                      });
-                    },
-                  );
-                }).toList(),
+                children:
+                    _countries.map((country) {
+                      return FilterChip(
+                        label: Text(country, style: TextStyle(fontSize: 12)),
+                        selected: _selectedFilters.contains(country),
+                        onSelected: (bool selected) {
+                          setState(() {
+                            if (selected) {
+                              _selectedFilters.add(country);
+                            } else {
+                              _selectedFilters.remove(country);
+                            }
+                          });
+                        },
+                      );
+                    }).toList(),
               ),
             ),
           Expanded(
-              child: HomeScreen(
-            filter: _filterValue,
-            searchQuery: _searchFilter,
-          ))
+            child: HomeScreen(filter: _filterValue, searchQuery: _searchFilter),
+          ),
         ],
       ),
     );
