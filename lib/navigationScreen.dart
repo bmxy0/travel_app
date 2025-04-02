@@ -19,27 +19,32 @@ class _NavigationScreenState extends State<NavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey[100],
-        title: Text(
-          currentPageIndex == 0
-              ? 'TravelGo!'
-              : currentPageIndex == 1
-              ? "Explore"
-              : currentPageIndex == 2
-              ? "Create New Post"
-              : currentPageIndex == 3
-              ? "Profile"
-              : currentPageIndex == 4
-              ? "Settings"
-              : "",
-          style: GoogleFonts.montserrat(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-            color: Colors.blue,
-          ),
-        ),
-      ),
+      appBar:
+          currentPageIndex == 0 ||
+                  currentPageIndex == 1 ||
+                  currentPageIndex == 2 ||
+                  currentPageIndex == 4
+              ? AppBar(
+                backgroundColor: Colors.grey[100],
+
+                title: Text(
+                  currentPageIndex == 0
+                      ? 'TravelGo!'
+                      : currentPageIndex == 1
+                      ? 'Explore'
+                      : currentPageIndex == 2
+                      ? 'Create New Post'
+                      : currentPageIndex == 4
+                      ? 'Settings'
+                      : '',
+                  style: GoogleFonts.montserrat(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                  ),
+                ),
+              )
+              : null,
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
@@ -76,7 +81,14 @@ class _NavigationScreenState extends State<NavigationScreen> {
             HomeScreen(),
             ExploreScreen(),
             NewPostScreen(),
-            ProfileScreen(userName: widget.userName),
+            ProfileScreen(
+              userName: widget.userName,
+              pfp: "assets/pfp1.jpg",
+              followerCount: 130,
+              followingCount: 10,
+              bio:
+                  'Welcome to my profile \n im 24 \n traveled to 6 countries 🇪🇸 🇺🇸 🇬🇧 🇯🇵 🇫🇷 🇮🇶 \n I share my travel stories with you all',
+            ),
             SettingsScreen(),
           ][currentPageIndex],
     );

@@ -14,9 +14,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
   List<String> _selectedFilters = [];
   List<String> _countries = [
     'Iraq',
-    'USA',
+    'United States',
     'Canada',
-    'UK',
+    'United Kingdom',
     'Japan',
     'France',
     'Spain',
