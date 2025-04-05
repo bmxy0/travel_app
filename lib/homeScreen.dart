@@ -160,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       barrierColor: Color.fromARGB(200, 0, 0, 0),
                       builder: (BuildContext context) {
                         return Dialog(
-                          Padding: EdgeInsets.all(10),
+                          insetPadding: EdgeInsets.all(10),
                           child: GestureDetector(
                             onTap: () {
                               Navigator.of(context).pop();
