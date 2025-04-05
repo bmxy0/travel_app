@@ -335,7 +335,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
                 ),
                 itemBuilder: (context, item, isDisabled, isSelected) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 12.0),
+                    padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Text(
                       item,
                       style: TextStyle(
@@ -346,7 +346,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
                     ),
                   );
                 },
-                constraints: BoxConstraints(maxHeight: 160),
+
                 menuProps: MenuProps(
                   margin: EdgeInsets.only(top: 12),
                   shape: const RoundedRectangleBorder(
