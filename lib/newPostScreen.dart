@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
+import 'globals.dart' as globals;
 
 class NewPostScreen extends StatefulWidget {
-  const NewPostScreen({super.key});
+  final String? userName;
+  const NewPostScreen({super.key, this.userName});
 
   @override
   State<NewPostScreen> createState() => _NewPostScreenState();
@@ -10,7 +12,7 @@ class NewPostScreen extends StatefulWidget {
 
 class _NewPostScreenState extends State<NewPostScreen> {
   String? selectedCountry;
-  String? caption;
+  String? caption = '';
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -355,7 +357,43 @@ class _NewPostScreenState extends State<NewPostScreen> {
             ),
             SizedBox(height: 40),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if (selectedCountry == null) {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Select a country"),
+                        content: Text("Please choose a country before posting"),
+                        actions: [
+                          TextButton(
+                            child: Text("OK"),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+                if (selectedCountry != null) {
+                  globals.myList.insert(0, {
+                    "name": "${widget.userName}",
+                    "pfp": "assets/pfp0.jpeg",
+                    "country": "$selectedCountry",
+                    "text": "$caption",
+                    "image": "assets/images/images.jpeg",
+                    "likes": 0,
+                    "commentsCount": 0,
+                    "isLiked": false,
+                    "followerCount": 130,
+                    "followingCount": 10,
+                    "bio":
+                        "Welcome to my profile \n im 24 \n traveled to 6 countries 🇪🇸 🇺🇸 🇬🇧 🇯🇵 🇫🇷 🇮🇶 \n I share my travel stories with you all",
+                  });
+                }
+              },
               child: Text('Post'),
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 40),

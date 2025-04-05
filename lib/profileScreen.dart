@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/homeScreen.dart';
 
 class ProfileScreen extends StatefulWidget {
+  final int? postsCount;
   final String? userName;
   final String? pfp;
   final int? followerCount;
@@ -17,6 +18,7 @@ class ProfileScreen extends StatefulWidget {
     this.followerCount,
     this.followingCount,
     this.bio,
+    this.postsCount,
   });
 
   @override
@@ -26,8 +28,10 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    String? picture = widget.pfp;
-    String? bio = widget.bio;
+    int? postsCount = 1;
+    if (widget.postsCount != null) {
+      postsCount = widget.postsCount;
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[100],
@@ -53,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   width: 80,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('${picture}'),
+                      image: AssetImage('${widget.pfp}'),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(50),
@@ -89,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          'Posts \n 10',
+                          'Posts \n $postsCount',
                           style: GoogleFonts.montserrat(
                             fontSize: 13,
                             fontWeight: FontWeight.w700,
@@ -104,15 +108,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             SizedBox(height: 10),
             Text('${widget.bio}'),
             SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('Edit Profile'),
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 40),
-                backgroundColor: Colors.grey[100],
-                foregroundColor: Colors.black,
-              ),
-            ),
             SizedBox(height: 10),
             Divider(color: Colors.grey, thickness: 1),
             SizedBox(height: 10),

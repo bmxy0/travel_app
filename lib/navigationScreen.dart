@@ -80,10 +80,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
           <Widget>[
             HomeScreen(),
             ExploreScreen(),
-            NewPostScreen(),
+            NewPostScreen(userName: widget.userName),
             ProfileScreen(
               userName: widget.userName,
-              pfp: "assets/pfp1.jpg",
+              pfp: "assets/pfp0.jpeg",
               followerCount: 130,
               followingCount: 10,
               bio:
