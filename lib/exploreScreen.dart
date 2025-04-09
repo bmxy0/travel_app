@@ -39,11 +39,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
           ),
           SizedBox(height: 20),
           DropdownSearch<String>(
+            
             onChanged: (String? country) {
               setState(() {
                 selectedCountry = country;
                 if (selectedCountry == "Clear Filter") {
-                  selectedCountry = '';
+                  selectedCountry = null;
                 }
               });
             },

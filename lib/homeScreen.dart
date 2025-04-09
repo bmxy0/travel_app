@@ -58,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String? filter = widget.filter;
     List<String> filters = [];
     if (widget.filter != null && widget.filter!.isNotEmpty) {
       filters = widget.filter!.split(", ");
@@ -72,8 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 widget.searchQuery!.toLowerCase(),
               );
           final filterMatches =
-              filters.isEmpty ||
-              filters.any((filter) => item['country'].contains(filter));
+              filter == null || item['country'].contains(filter);
           return nameMatches && filterMatches;
         }).toList();
 

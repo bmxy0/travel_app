@@ -15,7 +15,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isHidden = true;
-  String userName = 'Mohammed';
+  String userName = 'Mohammed Albaqer';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
