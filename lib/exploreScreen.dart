@@ -39,7 +39,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
           ),
           SizedBox(height: 20),
           DropdownSearch<String>(
-            
             onChanged: (String? country) {
               setState(() {
                 selectedCountry = country;
@@ -284,7 +283,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   borderSide: BorderSide(color: Colors.transparent),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                prefixIcon: Icon(Icons.filter_alt_rounded),
+                prefixIcon: Icon(Icons.filter_alt_outlined),
                 hintText: 'Filter country',
                 hintStyle: TextStyle(
                   fontWeight: FontWeight.bold,

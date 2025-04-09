@@ -18,19 +18,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
           ElevatedButton(
             onPressed: () {},
-            child: Row(
-              children: [
-                Icon(Icons.rule_rounded),
-                SizedBox(width: 10),
-                Text('Options'),
-              ],
-            ),
             style: ElevatedButton.styleFrom(
               minimumSize: Size(double.infinity, 60),
               elevation: 0,
               backgroundColor: Colors.transparent,
               shadowColor: Colors.transparent,
               foregroundColor: Colors.black,
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.rule_rounded),
+                SizedBox(width: 10),
+                Text('Options'),
+              ],
             ),
           ),
           Divider(color: Colors.grey, thickness: 1),
@@ -41,19 +41,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 MaterialPageRoute(builder: (context) => AboutScreen()),
               );
             },
-            child: Row(
-              children: [
-                Icon(Icons.info_outline),
-                SizedBox(width: 10),
-                Text('About'),
-              ],
-            ),
             style: ElevatedButton.styleFrom(
               minimumSize: Size(double.infinity, 60),
               elevation: 0,
               backgroundColor: Colors.transparent,
               shadowColor: Colors.transparent,
               foregroundColor: Colors.black,
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.info_outline),
+                SizedBox(width: 10),
+                Text('About'),
+              ],
             ),
           ),
           Divider(color: Colors.grey, thickness: 1),
@@ -64,19 +64,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 MaterialPageRoute(builder: (context) => LoginScreen()),
               );
             },
-            child: Row(
-              children: [
-                Icon(Icons.exit_to_app_rounded),
-                SizedBox(width: 10),
-                Text('Log Out'),
-              ],
-            ),
             style: ElevatedButton.styleFrom(
               minimumSize: Size(double.infinity, 60),
               elevation: 0,
               backgroundColor: Colors.transparent,
               shadowColor: Colors.transparent,
               foregroundColor: Colors.black,
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.exit_to_app_rounded),
+                SizedBox(width: 10),
+                Text('Log Out'),
+              ],
             ),
           ),
           Divider(color: Colors.grey, thickness: 1),

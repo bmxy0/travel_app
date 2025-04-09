@@ -87,8 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   );
                 },
-                child: Text('Login', style: TextStyle(color: Colors.white)),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.cyan),
+                child: Text('Login', style: TextStyle(color: Colors.white)),
               ),
               SizedBox(height: 50),
               Row(

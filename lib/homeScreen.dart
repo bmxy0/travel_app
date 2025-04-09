@@ -4,7 +4,7 @@ import 'globals.dart' as globals;
 
 class ExpandableText extends StatefulWidget {
   final String text;
-  ExpandableText(this.text);
+  const ExpandableText(this.text, {super.key});
 
   @override
   _ExpandableTextState createState() => _ExpandableTextState();
@@ -26,7 +26,7 @@ class _ExpandableTextState extends State<ExpandableText> {
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.start,
             ),
-        if (widget.text.split('\n').length > 3 || widget.text.length > 150)
+        if (widget.text.split('\n').length > 3 || widget.text.length > 200)
           GestureDetector(
             onTap: () {
               setState(() {
@@ -59,11 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     String? filter = widget.filter;
-    List<String> filters = [];
-    if (widget.filter != null && widget.filter!.isNotEmpty) {
-      filters = widget.filter!.split(", ");
-    }
-
     final filteredList =
         myList.where((item) {
           final nameMatches =
@@ -165,11 +160,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: () {
                               Navigator.of(context).pop();
                             },
-                            child: Container(
-                              child: Image.asset(
-                                item["image"],
-                                fit: BoxFit.contain,
-                              ),
+                            child: Image.asset(
+                              item["image"],
+                              fit: BoxFit.contain,
                             ),
                           ),
                         );

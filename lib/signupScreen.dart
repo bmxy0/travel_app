@@ -21,92 +21,81 @@ class _SignupScreenState extends State<SignupScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'Sign up to TravelGo',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
+              Text('Sign up to TravelGo', style: TextStyle(fontSize: 30)),
+              SizedBox(height: 50),
               TextFormField(
                 onChanged: (value) {},
                 decoration: InputDecoration(
-                    hintText: "Email Address",
-                    prefixIcon: Icon(Icons.email),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25)),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25),
-                      borderSide: BorderSide(color: Colors.cyan, width: 2.0),
-                    )),
+                  hintText: "Email Address",
+                  prefixIcon: Icon(Icons.email),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25),
+                    borderSide: BorderSide(color: Colors.cyan, width: 2.0),
+                  ),
+                ),
               ),
-              SizedBox(
-                height: 50,
-              ),
+              SizedBox(height: 50),
               TextFormField(
                 onChanged: (value) {
                   userName = value;
                 },
                 decoration: InputDecoration(
-                    hintText: "Username",
-                    prefixIcon: Icon(Icons.alternate_email),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25)),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25),
-                      borderSide: BorderSide(color: Colors.cyan, width: 2.0),
-                    )),
+                  hintText: "Username",
+                  prefixIcon: Icon(Icons.alternate_email),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25),
+                    borderSide: BorderSide(color: Colors.cyan, width: 2.0),
+                  ),
+                ),
               ),
-              SizedBox(
-                height: 50,
-              ),
+              SizedBox(height: 50),
               TextFormField(
                 onChanged: (value) {},
                 obscureText: isHidden,
                 decoration: InputDecoration(
-                    hintText: "Password",
-                    prefixIcon: Icon(Icons.password),
-                    suffixIcon: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isHidden = !isHidden;
-                          });
-
-                          print('switch');
-                        },
-                        child: isHidden
+                  hintText: "Password",
+                  prefixIcon: Icon(Icons.password),
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isHidden = !isHidden;
+                      });
+                    },
+                    child:
+                        isHidden
                             ? Icon(Icons.visibility_off)
-                            : Icon(Icons.visibility)),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25),
-                      borderSide: BorderSide(color: Colors.cyan, width: 2.0),
-                    )),
+                            : Icon(Icons.visibility),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25),
+                    borderSide: BorderSide(color: Colors.cyan, width: 2.0),
+                  ),
+                ),
               ),
-              SizedBox(
-                height: 50,
-              ),
+              SizedBox(height: 50),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            NavigationScreen(userName: userName)),
+                      builder:
+                          (context) => NavigationScreen(userName: userName),
+                    ),
                   );
                 },
-                child: Text(
-                  'Signup',
-                  style: TextStyle(color: Colors.white),
-                ),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.cyan),
+                child: Text('Signup', style: TextStyle(color: Colors.white)),
               ),
-              SizedBox(
-                height: 50,
-              ),
+              SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -122,9 +111,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       " Login",
                       style: TextStyle(color: Colors.blueAccent),
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
